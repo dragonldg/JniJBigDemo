@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">JBigjni</string>
+    <string name="desc">请在白色区域内签名</string>
+    <string name="save">保存</string>
+    <string name="clear">重签</string>
+</resources>
