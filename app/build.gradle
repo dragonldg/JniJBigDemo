@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'com.jakewharton.butterknife'
-apply plugin:'kotlin-kapt'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 29
@@ -20,7 +20,15 @@ android {
         externalNativeBuild {//配置生成的so库类型
             cmake {
                 cppFlags ""
+                abiFilters 'x86_64'
+                arguments "-DANDROID_ARM_NEON=ON"
             }
+        }
+        ndk {
+            // Specifies the ABI configurations of your native
+            // libraries Gradle should build and package with your APK.
+            abiFilters 'x86', 'x86_64', 'armeabi-v7a',
+                    'arm64-v8a'
         }
     }
 
